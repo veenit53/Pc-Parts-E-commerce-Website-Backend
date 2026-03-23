@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://pc-parts-e-commerce-website-fronten.vercel.app"
+    "https://pc-parts-e-commerce-website-frontend-veenit-chouhans-projects.vercel.app/"
   ],
   credentials: true,
 }));
