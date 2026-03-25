@@ -6,10 +6,8 @@ const buildSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
-      unique: true   // one saved build per user (overwrite on save)
+      unique: true,
     },
-    // Stores full product objects keyed by category:
-    // { CPU: {...}, GPU: {...}, RAM: {...}, ... }
     components: {
       type: Object,
       default: {}

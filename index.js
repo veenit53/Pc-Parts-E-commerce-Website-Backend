@@ -22,10 +22,11 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://pc-parts-e-commerce-website-frontend-veenit-chouhans-projects.vercel.app"
-  ],
+  // origin: [
+  //   "http://localhost:5173",
+  //   "https://pc-parts-e-commerce-website-frontend-veenit-chouhans-projects.vercel.app"
+  // ],
+  origin: "true",
   credentials: true,
 }));
 
