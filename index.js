@@ -21,15 +21,29 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors({
-  // origin: [
-  //   "http://localhost:5173",
-  //   "https://pc-parts-e-commerce-website-frontend-veenit-chouhans-projects.vercel.app"
-  // ],
-  origin: "true",
-  credentials: true,
-}));
+// app.use(cors({
+//   origin: [
+//     "http://localhost:5173",
+//     "https://pc-parts-e-commerce-website-frontend-veenit-chouhans-projects.vercel.app"
+//   ],
+//   credentials: true,
+// }));
 
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+
+    if (
+      origin.includes("vercel.app") ||
+      origin.includes("localhost")
+    ) {
+      return callback(null, origin); // ✅ correct
+    }
+
+    return callback(new Error("Not allowed by CORS"));
+  },
+  credentials: true
+}));
 
 //routes
 
